@@ -1,4 +1,7 @@
 
+DIR_PRJ_TOP     	:= $(abspath $(dir $(lastword ${MAKEFILE_LIST})))
+APP_NAME        	:= $(notdir ${DIR_PRJ_TOP})
+
 DIR_BUILD			:= build
 DIR_BUILD_DEBUG		:= ${DIR_BUILD}/debug
 DIR_BUILD_RELEASE	:= ${DIR_BUILD}/release

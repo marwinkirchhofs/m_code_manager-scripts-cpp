@@ -7,25 +7,26 @@ include var.make
 #######################################
 
 .PHONY: build_debug
-build_debug:	_T_DIR_BUILD_T_/_T_DIR_DEBUG_T_/_T_APP_NAME_T_
+build_debug:	${DIR_BUILD_DEBUG}/${APP_NAME}
 
-_T_DIR_BUILD_T_/_T_DIR_DEBUG_T_/_T_APP_NAME_T_:	${SRC}
-	@cd _T_DIR_BUILD_T_/_T_DIR_DEBUG_T_ && cmake -DCMAKE_BUILD_TYPE=Debug ../..
-	@make -C _T_DIR_BUILD_T_/_T_DIR_DEBUG_T_
+${DIR_BUILD_DEBUG}/${APP_NAME}:	${SRC}
+	@cd ${DIR_BUILD_DEBUG} && cmake -DCMAKE_BUILD_TYPE=Debug ../..
+	@make -C ${DIR_BUILD_DEBUG}
 
 .PHONY: build_release
-build_release:	_T_DIR_BUILD_T_/_T_DIR_RELEASE_T_/_T_APP_NAME_T_
+build_release:	${DIR_BUILD_RELEASE}/${APP_NAME}
 
-_T_DIR_BUILD_T_/_T_DIR_RELEASE_T_/_T_APP_NAME_T_:	${SRC}
-	@cd _T_DIR_BUILD_T_/_T_DIR_RELEASE_T_ && cmake -DCMAKE_BUILD_TYPE=Release ../..
-	@make -C _T_DIR_BUILD_T_/_T_DIR_RELEASE_T_
+${DIR_BUILD_RELEASE}/${APP_NAME}:	${SRC}
+	@cd ${DIR_BUILD_RELEASE} && cmake -DCMAKE_BUILD_TYPE=Debug ../..
+	@make -C ${DIR_BUILD_RELEASE}
 
 .PHONY: build_maxopt
-build_maxopt:	_T_DIR_BUILD_T_/_T_DIR_MAXOPT_T_/_T_APP_NAME_T_
+build_maxopt:	${DIR_BUILD_MAXOPT}/${APP_NAME}
 
-_T_DIR_BUILD_T_/_T_DIR_MAXOPT_T_/_T_APP_NAME_T_:	${SRC}
-	@cd _T_DIR_BUILD_T_/_T_DIR_MAXOPT_T_ && cmake -DCMAKE_CXX_FLAGS="${DCMAKE_CXX_FLAGS} -Ofast -march=native" ../..
-	@make -C _T_DIR_BUILD_T_/_T_DIR_MAXOPT_T_
+${DIR_BUILD_MAXOPT}/${APP_NAME}:	${SRC}
+	@cd ${DIR_BUILD_MAXOPT} && \
+		cmake -DCMAKE_CXX_FLAGS="${DCMAKE_CXX_FLAGS} -Ofast -march=native" ../..
+	@make -C ${DIR_BUILD_MAXOPT}
 
 #######################################
 # RUN
@@ -33,14 +34,14 @@ _T_DIR_BUILD_T_/_T_DIR_MAXOPT_T_/_T_APP_NAME_T_:	${SRC}
 
 .PHONY: release
 release:	build_release
-	@cd _T_DIR_BUILD_T_/$@ && ./_T_APP_NAME_T_
+	@cd ${DIR_BUILD}/$@ && ./${APP_NAME}
 
 .PHONY: debug
 debug:		build_debug
-	@cd _T_DIR_BUILD_T_/$@ && ./_T_APP_NAME_T_
+	@cd ${DIR_BUILD}/$@ && ./${APP_NAME}
 
 .PHONY: maxopt
 maxopt:		build_maxopt
-	@cd _T_DIR_BUILD_T_/$@ && ./_T_APP_NAME_T_
+	@cd ${DIR_BUILD}/$@ && ./${APP_NAME}
 
 # vim: ft=make
