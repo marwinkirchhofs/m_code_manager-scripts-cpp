@@ -1,0 +1,14 @@
+{
+    "makefile_sim": {
+        "destination": "",
+        "destination_name": "makefile"
+    },
+    "var_make": {
+        "destination": "",
+        "destination_name": "var.make"
+    },
+    "gitignore": {
+        "destination": "",
+        "destination_name": "gitignore"
+    }
+}

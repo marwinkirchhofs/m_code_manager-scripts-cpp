@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-include _T_FILE_MAKE_VARIABLES_T_
+include var.make
 
 #######################################
 # BUILD
@@ -42,3 +42,5 @@ debug:		build_debug
 .PHONY: maxopt
 maxopt:		build_maxopt
 	@cd _T_DIR_BUILD_T_/$@ && ./_T_APP_NAME_T_
+
+# vim: ft=make

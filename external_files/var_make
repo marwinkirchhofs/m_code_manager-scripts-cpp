@@ -1,0 +1,13 @@
+
+DIR_BUILD			:= build
+DIR_BUILD_DEBUG		:= ${DIR_BUILD}/debug
+DIR_BUILD_RELEASE	:= ${DIR_BUILD}/release
+DIR_BUILD_MAXOPT	:= ${DIR_BUILD}/maxopt
+
+DIR_SRC				:= src
+
+SRC_CPP				:= $(shell find ${DIR_SRC} -type f -name '*.cpp')
+SRC_H				:= $(shell find ${DIR_SRC} -type f -name '*.h')
+SRC					:= ${SRC_CPP} ${SRC_H} CMakeLists.txt
+
+# vim: ft=make
