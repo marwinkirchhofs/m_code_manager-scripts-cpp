@@ -1,5 +1,5 @@
 {
-    "makefile_sim": {
+    "makefile_top": {
         "destination": "",
         "destination_name": "makefile"
     },
@@ -9,6 +9,6 @@
     },
     "gitignore": {
         "destination": "",
-        "destination_name": "gitignore"
+        "destination_name": ".gitignore"
     }
 }
